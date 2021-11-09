@@ -1,0 +1,76 @@
+﻿@model IEnumerable<DocumentsProject.Table1>
+
+@{
+    ViewBag.Title = "SearchActs";
+}
+
+<h2>SearchAct</h2>
+
+
+<p>
+    @Html.ActionLink("Create New","Create")
+</p>
+
+<form id="formSearch" method="post">
+    <div class="row" id="searchBox">
+        <div class="col-md-1">Subject Name</div>
+        <div class="col-md-2"><input type="text" id="searching" name="Subject" /></div>
+        <div class="col-md-1"></div>
+
+    </div>
+    <div class="row" id="searchBox">
+        <div class="col-md-1">Created By</div>
+        <div class="col-md-2"><input type="text" id="CreatedBY" name="CreatedBY" /></div>
+        <div class="col-md-1"><input type="submit" id="submutSearch" value="search" /></div>
+
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SerialNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+     
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SerialNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+      
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
